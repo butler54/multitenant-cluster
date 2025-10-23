@@ -114,4 +114,22 @@ clusterGroup:
       playbook: ansible/set-default-storage-class.yaml
       verbosity: -vvv
       timeout: 1800
+    clusterRoleYaml:
+
+      - apiGroups:
+          - "*"
+        resources:
+          - networks
+          - storageclass
+        verbs:
+          - "*"
+      - apiGroups:
+          - "*"
+        resources:
+          - "*"
+        verbs:
+          - get
+          - list
+          - watch
+
     
