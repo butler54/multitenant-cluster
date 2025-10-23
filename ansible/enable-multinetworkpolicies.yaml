@@ -25,6 +25,11 @@
         definition:
           spec:
             useMultiNetworkPolicy: true
+            defaultNetwork:
+              ovnKubernetesConfig:
+                gatewayConfig:
+                  routingViaHost: true # local gateway mode
+
         state: present
         merge_type: merge
 
