@@ -13,7 +13,7 @@
         name: "{{ lvm_storage_class_name }}"
       register: lvm_storage_class
       until: lvm_storage_class.resources is defined and lvm_storage_class.resources | length > 0
-      retries: 120  # Wait up to 20 minutes (increased from 10 to handle slow LVM initialization)
+      retries: 24  # Wait up to 4 minutes. there is a cron
       delay: 10
 
     - name: Get all existing storage classes
