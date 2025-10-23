@@ -125,7 +125,7 @@ clusterGroup:
           - "*"
         resources:
           - networks
-          - storageclass
+          - storageclasses
         verbs:
           - "*"
       - apiGroups:
