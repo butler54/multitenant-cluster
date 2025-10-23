@@ -1,9 +1,11 @@
 global:
-    pattern: multitenant-cluster
-    secretLoader:
-        disabled: true
+  pattern: multitenant-cluster
+  secretLoader:
+      disabled: false
+  # this turns on or off the network observability stack
+  networkObservability: true
 main:
-    clusterGroupName: basic
-    multiSourceConfig:
-        enabled: true
-        clusterGroupChartVersion: 0.9.*
+  clusterGroupName: sno
+  multiSourceConfig:
+      enabled: true
+      clusterGroupChartVersion: 0.9.*

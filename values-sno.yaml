@@ -39,15 +39,17 @@ clusterGroup:
       name: openshift-cert-manager-operator
       namespace: cert-manager-operator
       channel: stable-v1
-    nfd:
-      name: nfd
-      namespace: openshift-nfd
-      channel: stable
+    # required for functional storage
     lvm-operator:
       name: lvms-operator
       namespace: openshift-storage
       source: redhat-operators
       channel: stable-4.20
+    nfd:
+      name: nfd
+      namespace: openshift-nfd
+      channel: stable
+
     metallb:
       name: metallb-operator
       namespace: metallb-system
@@ -56,6 +58,13 @@ clusterGroup:
       name: kubernetes-nmstate-operator
       namespace: openshift-nmstate
       channel: stable
+    # network observability stack
+    netobserv:
+      name: netobserv-operator
+      channel: stable
+    loki:
+      name: loki-operator
+      channel: stable-6.1
   applications:
 
     # Do not install ACM until required 
@@ -87,6 +96,7 @@ clusterGroup:
       namespace: openshift-nmstate
       project: infra
       path: charts/infra/network-plumbing
+      
   imperative:
 
     jobs:
