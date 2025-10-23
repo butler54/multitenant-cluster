@@ -13,6 +13,7 @@ clusterGroup:
   - openshift-nmstate
   - openshift-storage
   - netobserv
+  - openshift-netobserv-operator
   - metallb-system:
       operatorGroup: true
       targetNamespaces:
