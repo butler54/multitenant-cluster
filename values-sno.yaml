@@ -89,7 +89,7 @@ clusterGroup:
     lvm-storage:
       name: lvm-storage
       namespace: openshift-storage
-      project: hub
+      project: infra
       path: charts/infra/lvm-storage
     network-plumbing:
       name: network-plumbing
