@@ -15,6 +15,7 @@ clusterGroup:
   - netobserv
   - openshift-netobserv-operator
   - openshift-cnv
+  - openshift-virtualization-os-images
   - metallb-system:
       operatorGroup: true
       targetNamespaces:
