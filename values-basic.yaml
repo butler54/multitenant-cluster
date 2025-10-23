@@ -1,8 +1,0 @@
-clusterGroup:
-    name: basic
-    namespaces:
-        - basic
-    projects:
-        - basic
-    subscriptions: {}
-    applications: {}

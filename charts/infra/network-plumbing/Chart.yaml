@@ -1,0 +1,7 @@
+apiVersion: v2
+description: Minimum network plumbing for multitenant cluster
+keywords:
+- pattern
+- network
+name: network-plumbing
+version: 0.0.1

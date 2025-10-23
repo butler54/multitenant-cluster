@@ -1,0 +1,4 @@
+# LVMS Storage configuration - minimal setup
+lvmCluster:
+  name: "lvmcluster"
+  deviceClass: "vg1"

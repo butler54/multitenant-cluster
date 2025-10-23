@@ -1,0 +1,47 @@
+- name: Enable Multi Network Policies
+  become: false
+  connection: local
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Check if Network operator exists
+      kubernetes.core.k8s_info:
+        api_version: operator.openshift.io/v1
+        kind: Network
+        name: cluster
+      register: network_operator
+      failed_when: false
+
+    - name: Fail if Network operator not found
+      fail:
+        msg: "Network operator cluster resource not found. This is required to enable multinetworkpolicies."
+      when: network_operator.resources is not defined or network_operator.resources | length == 0
+
+    - name: Enable multinetworkpolicies in Network operator
+      kubernetes.core.k8s:
+        api_version: operator.openshift.io/v1
+        kind: Network
+        name: cluster
+        definition:
+          spec:
+            useMultiNetworkPolicy: true
+        state: present
+        merge_type: merge
+
+    - name: Wait for Network operator to reconcile
+      kubernetes.core.k8s_info:
+        api_version: operator.openshift.io/v1
+        kind: Network
+        name: cluster
+      register: network_status
+      until: 
+        - network_status.resources is defined
+        - network_status.resources | length > 0
+        - network_status.resources[0].spec.useMultiNetworkPolicy is defined
+        - network_status.resources[0].spec.useMultiNetworkPolicy == true
+      retries: 30
+      delay: 10
+
+    - name: Display Network operator status
+      debug:
+        msg: "Multi Network Policies enabled successfully. useMultiNetworkPolicy: {{ network_status.resources[0].spec.useMultiNetworkPolicy }}"
