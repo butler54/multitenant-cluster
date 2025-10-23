@@ -14,11 +14,11 @@ spec:
     template:
       type: Opaque
       data:
-        bucketnames: {{ .Values.s3.bucket }}
-        endpoint: "https://s3.{{ .Values.s3.region }}.amazonaws.com"
-        region: {{ .Values.s3.region }}
-        access_key_id: {{ `{{ .aws_access_key_id | toString }}` }}
-        access_key_secret: {{ `{{ .aws_secret_access_key | toString }}` }}
+        bucketnames: {{ .Values.s3.bucket | quote }}
+        endpoint: {{ printf "https://s3.%s.amazonaws.com" .Values.s3.region | quote }}
+        region: {{ .Values.s3.region | quote }}
+        access_key_id: {{ "{{ .aws_access_key_id | toString }}" | quote }}
+        access_key_secret: {{ "{{ .aws_secret_access_key | toString }}" | quote }}
   data:
   - secretKey: aws_access_key_id 
     remoteRef:
