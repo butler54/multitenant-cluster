@@ -29,9 +29,13 @@
               ovnKubernetesConfig:
                 gatewayConfig:
                   routingViaHost: true # local gateway mode
-
-        state: present
-        merge_type: merge
+                policyAuditConfig:
+                  destination: "null"
+                  maxFileSize: 50
+                  rateLimit: 20
+                  syslogFacility: local0
+                  state: present
+                  merge_type: merge
 
     - name: Wait for Network operator to reconcile
       kubernetes.core.k8s_info:

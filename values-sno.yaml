@@ -95,6 +95,12 @@ clusterGroup:
       project: vault
       chart: golang-external-secrets
       chartVersion: 0.1.*
+    openshift-cnv:
+      name: openshift-cnv
+      namespace: openshift-cnv
+      project: infra
+      chart: openshift-virtualization-instance
+      chartVersion: 0.1.*
     lvm-storage:
       name: lvm-storage
       namespace: openshift-storage
