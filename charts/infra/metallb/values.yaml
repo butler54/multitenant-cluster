@@ -1,0 +1,8 @@
+# NOTE: This is currently an experimental/unsupported chart!
+# Default values for the experimental letsencrypt chart
+# Generate the README.md sections using https://github.com/bitnami-labs/readme-generator-for-helm
+#
+## @section global parameters
+secretStore:
+  name: vault-backend
+  kind: ClusterSecretStore

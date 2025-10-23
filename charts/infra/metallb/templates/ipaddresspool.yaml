@@ -1,0 +1,9 @@
+---
+apiVersion: "metallb.io/v1beta1"
+kind: IPAddressPool
+metadata:
+  name: floatingips
+  namespace: metallb-system
+spec:
+  addresses:
+    - 172.25.49.128-172.25.49.250

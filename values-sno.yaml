@@ -116,6 +116,11 @@ clusterGroup:
       namespace: netobserv
       project: infra
       path: charts/infra/netobserv
+    metallb:
+      name: metallb
+      namespace: metallb-system
+      project: infra
+      path: charts/infra/metallb
   imperative:
 
     jobs:
