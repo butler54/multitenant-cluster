@@ -13,12 +13,12 @@ spec:
     name: loki-s3
     template:
       type: Opaque
-    data:
-      bucketnames: {{ .Values.s3.bucket }}
-      endpoint: "https://s3.{{ .Values.s3.region }}.amazonaws.com"
-      region: {{ .Values.s3.region }}
-      access_key_id: {{ printf "{{ .aws_access_key_id | toString }}" }}
-      access_key_secret: {{ printf "{{ .aws_secret_access_key | toString }}" }}
+      data:
+        bucketnames: {{ .Values.s3.bucket }}
+        endpoint: "https://s3.{{ .Values.s3.region }}.amazonaws.com"
+        region: {{ .Values.s3.region }}
+        access_key_id: {{ `{{ .aws_access_key_id | toString }}` }}
+        access_key_secret: {{ `{{ .aws_secret_access_key | toString }}` }}
   data:
   - secretKey: aws_access_key_id 
     remoteRef:
