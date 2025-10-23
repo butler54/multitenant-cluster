@@ -4,6 +4,7 @@ global:
       disabled: false
   # this turns on or off the network observability stack
   networkObservability: true
+  storageClass: lvms-vg1 # lvms-vg1 is the default storage class for the cluster when using LVM storage
 main:
   clusterGroupName: sno
   multiSourceConfig:

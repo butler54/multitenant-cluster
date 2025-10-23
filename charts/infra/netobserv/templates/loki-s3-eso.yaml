@@ -1,0 +1,30 @@
+---
+apiVersion: "external-secrets.io/v1beta1"
+kind: ExternalSecret
+metadata:
+  name: config-demo-secret
+  namespace: netobserv
+spec:
+  refreshInterval: 15s
+  secretStoreRef:
+    name: {{ .Values.secretStore.name }}
+    kind: {{ .Values.secretStore.kind }}
+  target:
+    name: loki-s3
+    template:
+      type: Opaque
+    data:
+      bucketnames: {{ .Values.s3.bucket }}
+      endpoint: "https://s3.{{ .Values.s3.region }}.amazonaws.com"
+      region: {{ .Values.s3.region }}
+      access_key_id: {{ printf "{{ .aws_access_key_id | toString }}" }}
+      access_key_secret: {{ printf "{{ .aws_secret_access_key | toString }}" }}
+  data:
+  - secretKey: aws_access_key_id 
+    remoteRef:
+      key: {{ .Values.awssecret.key }}
+      property: aws_access_key_id
+  - secretKey: aws_secret_access_key 
+    remoteRef:
+      key: {{ .Values.awssecret.key }}
+      property: aws_secret_access_key

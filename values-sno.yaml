@@ -12,6 +12,7 @@ clusterGroup:
   - openshift-nfd
   - openshift-nmstate
   - openshift-storage
+  - netobserv
   - metallb-system:
       operatorGroup: true
       targetNamespaces:
@@ -44,7 +45,7 @@ clusterGroup:
       name: lvms-operator
       namespace: openshift-storage
       source: redhat-operators
-      channel: stable-4.19
+      channel: stable-4.19 # 4.20 is not available yet
     nfd:
       name: nfd
       namespace: openshift-nfd
@@ -64,7 +65,7 @@ clusterGroup:
       channel: stable
     loki:
       name: loki-operator
-      channel: stable-6.1
+      channel: stable-6.3
   applications:
 
     # Do not install ACM until required 
@@ -96,7 +97,11 @@ clusterGroup:
       namespace: openshift-nmstate
       project: infra
       path: charts/infra/network-plumbing
-      
+    netobserv:
+      name: netobserv
+      namespace: netobserv
+      project: infra
+      path: charts/infra/netobserv
   imperative:
 
     jobs:

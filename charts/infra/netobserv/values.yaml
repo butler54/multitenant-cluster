@@ -1,0 +1,16 @@
+---
+global:
+  hubClusterDomain: hub.example.com
+  localCluster: local.example.com
+
+secretStore:
+  name: vault-backend
+  kind: ClusterSecretStore
+
+awssecret:
+  key: secret/data/global/aws
+
+# bucket region 
+s3:
+  region: ap-southeast-1
+  bucket: loki-zxtg7
