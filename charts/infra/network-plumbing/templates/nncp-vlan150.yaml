@@ -9,7 +9,7 @@ spec:
   desiredState:
     ovn:
       bridge-mappings:
-      - localnet: {{ .Values.vlan150.nncp.bridgeName | default "br-vlan150" }}
+      - localnet: {{ .Values.vlan150.name | default "br-vlan150" }}
         bridge: {{ .Values.vlan150.nncp.bridgeName | default "br-vlan150" }}
         state: present
     interfaces:
