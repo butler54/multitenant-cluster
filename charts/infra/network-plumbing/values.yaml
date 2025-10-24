@@ -1,0 +1,22 @@
+# Network Plumbing Configuration
+# This chart configures network interfaces and attachments for the cluster
+
+# VLAN 150 Configuration for localnet and CUDN support
+vlan150:
+  enabled: true
+  name: "vlan150-localnet"
+  namespace: "secondary-network"
+  vlanID: 150
+  subnet: "172.25.46.0/24"
+  mtu: 1500
+  
+  # NodeNetworkConfigurationPolicy to create VLAN interface and dedicated OVS bridge
+  nncp:
+    enabled: true
+    name: "vlan150-config"
+    baseInterface: "eno12399"
+    vlanInterface: "eno12399.150"
+    bridgeName: "br-vlan150"  # Dedicated bridge, separate from main br-ex
+  
+
+

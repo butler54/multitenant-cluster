@@ -119,6 +119,15 @@ clusterGroup:
       namespace: openshift-nmstate
       project: infra
       path: charts/infra/network-plumbing
+      overrides:
+        - name: vlan150.enabled
+          value: "true"
+        - name: vlan150.vlanID
+          value: "150"
+        - name: vlan150.nncp.baseInterface
+          value: "eno12399"
+        - name: vlan150.nncp.vlanInterface
+          value: "eno12399.150"
     netobserv:
       name: netobserv
       namespace: netobserv
