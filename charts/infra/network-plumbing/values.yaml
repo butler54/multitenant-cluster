@@ -18,5 +18,12 @@ vlan150:
     vlanInterface: "eno12399.150"
     bridgeName: "br-vlan150"  # Dedicated bridge, separate from main br-ex
   
+  # Cluster User Defined Network configuration
+  cudn:
+    enabled: true
+    name: "vlan150-cudn"
+    namespace: "udn-and-secondary-network"
+    subnet: "10.150.0.0/16"
+  
 
 

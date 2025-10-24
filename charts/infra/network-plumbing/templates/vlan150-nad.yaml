@@ -13,9 +13,10 @@ spec:
       "name": "{{ .Values.vlan150.name | default "br-vlan150" }}",
       "type": "ovn-k8s-cni-overlay",
       "topology": "localnet",
-      "subnets": "{{ .Values.vlan150.subnet | default "172.25.50.0/24" }}",
+
       "mtu": {{ .Values.vlan150.mtu | default 1500 }},
       "netAttachDefName": "{{ .Values.vlan150.namespace | default "default" }}/{{ .Values.vlan150.name | default "br-vlan150" }}"
     }
 {{- end }}
 
+#      "subnets": "{{ .Values.vlan150.subnet | default "172.25.50.0/24" }}",
