@@ -17,11 +17,12 @@ Raw testing of networking constructs: OpenShift and OVN-K have or are working on
 
 The objective is to configure all of this as GitOps. This includes the required base cluster configuration. For this a small number of specific tests are required.
 
+#### Simple VPC
+1. User can provision a 'VPC' which is a (C)UDN. That construct has an egress IP assigned to it and load balance IP's over the
+
 1. Demonstrating that CUDNs can be peered to a VRF, providing an service provider the flexibility to setup custom routes (north and south) for a tenant using a VRF-Lite pattern
 2. Demonstrating that egress IP + CUDN + metallb + egress services can provide the core of a VPC functionality for end users
 3. Service provider services: Demonstrate that a service provider can leak services in the cluster to allow a tenant to access a service they run from within a CUDN.
-
-
 
 ### Scenario 2
 I am a service provider providing a cloud experience for my tenants. This IaaS infrastructure allows a simple pattern:
