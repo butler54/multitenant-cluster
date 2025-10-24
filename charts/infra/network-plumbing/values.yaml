@@ -4,10 +4,10 @@
 # VLAN 150 Configuration for localnet and CUDN support
 vlan150:
   enabled: true
-  name: "vlan150-localnet"
+  name: "br-vlan150"
   namespace: "secondary-network"
   vlanID: 150
-  subnet: "172.25.46.0/24"
+  subnet: "172.25.50.0/24"
   mtu: 1500
   
   # NodeNetworkConfigurationPolicy to create VLAN interface and dedicated OVS bridge
