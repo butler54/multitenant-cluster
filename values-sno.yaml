@@ -32,7 +32,8 @@ clusterGroup:
         k8s.ovn.org/primary-user-defined-network: ""
         name: gitops-udn-c
   - secondary-network:
-
+      labels:
+        name: secondary-network
   - udn-and-secondary-network:
       labels:
         k8s.ovn.org/primary-user-defined-network: ""
