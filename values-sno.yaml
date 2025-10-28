@@ -143,7 +143,12 @@ clusterGroup:
       name: udn
       namespace: gitops-udn-a
       project: infra
-      path: charts/infra/udn  
+      path: charts/infra/udn
+    sample-workload:
+      name: sample-workload
+      namespace: gitops-udn-a
+      project: sample-workload
+      path: charts/sample-workload/udn-workloads
   imperative:
 
     jobs:

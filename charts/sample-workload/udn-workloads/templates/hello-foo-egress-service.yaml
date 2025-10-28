@@ -1,0 +1,12 @@
+apiVersion: k8s.ovn.org/v1
+kind: EgressService
+metadata:
+  name: hello-foo-egress-service
+  namespace: gitops-udn-a   
+spec:
+  sourceIPBy: "LoadBalancerIP"
+  nodeSelector: 
+    matchLabels:
+      node-role.kubernetes.io/master: ""
+# not required
+#  network: <egress_traffic_network> 
