@@ -6,9 +6,11 @@ spec:
   namespaceSelector:
     matchLabels:
       name: gitops-udn-c
-  topology: Layer3
-  layer3:
-    role: Primary
-    subnets:
-      - cidr: 10.150.0.0/16
-        hostSubnet: 24
+  network:
+    layer2:
+      ipam:
+        lifecycle: Persistent
+      role: Primary
+      subnets:
+      - 10.100.0.0/16
+    topology: Layer2
