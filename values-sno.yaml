@@ -42,6 +42,7 @@ clusterGroup:
   projects:
       - infra
       - vault
+      - sample-workload
   subscriptions: 
     acm:
       name: advanced-cluster-management
