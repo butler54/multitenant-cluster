@@ -1,23 +1,23 @@
-{{- if .Values.vlan150.cudn.enabled }}
-apiVersion: k8s.cni.cncf.io/v1
-kind: NetworkAttachmentDefinition
-metadata:
-  name: {{ .Values.vlan150.cudn.name | default "vlan150-cudn" }}
-  namespace: {{ .Values.vlan150.cudn.namespace | default "default" }}
-  annotations:
-    description: "Cluster User Defined Network on VLAN 150 using dedicated OVS bridge {{ .Values.vlan150.nncp.bridgeName | default "br-vlan150" }}"
-spec:
-  config: |
-    {
-      "cniVersion": "1.0.0",
-      "name": "{{ .Values.vlan150.cudn.name | default "vlan150-cudn" }}",
-      "type": "ovn-k8s-cni-overlay",
-      "topology": "localnet",
-      "subnets": "{{ .Values.vlan150.cudn.subnet | default "10.150.0.0/16" }}",
-      "vlanID": {{ .Values.vlan150.vlanID | default 150 }},
-      "mtu": {{ .Values.vlan150.mtu | default 1500 }},
-      "netAttachDefName": "{{ .Values.vlan150.cudn.namespace | default "default" }}/{{ .Values.vlan150.cudn.name | default "vlan150-cudn" }}",
-      "role": "primary"
-    }
-{{- end }}
+# {{- if .Values.vlan150.cudn.enabled }}
+# apiVersion: k8s.cni.cncf.io/v1
+# kind: NetworkAttachmentDefinition
+# metadata:
+#   name: {{ .Values.vlan150.cudn.name | default "vlan150-cudn" }}
+#   namespace: {{ .Values.vlan150.cudn.namespace | default "default" }}
+#   annotations:
+#     description: "Cluster User Defined Network on VLAN 150 using dedicated OVS bridge {{ .Values.vlan150.nncp.bridgeName | default "br-vlan150" }}"
+# spec:
+#   config: |
+#     {
+#       "cniVersion": "1.0.0",
+#       "name": "{{ .Values.vlan150.cudn.name | default "vlan150-cudn" }}",
+#       "type": "ovn-k8s-cni-overlay",
+#       "topology": "localnet",
+#       "subnets": "{{ .Values.vlan150.cudn.subnet | default "10.150.0.0/16" }}",
+#       "vlanID": {{ .Values.vlan150.vlanID | default 150 }},
+#       "mtu": {{ .Values.vlan150.mtu | default 1500 }},
+#       "netAttachDefName": "{{ .Values.vlan150.cudn.namespace | default "default" }}/{{ .Values.vlan150.cudn.name | default "vlan150-cudn" }}",
+#       "role": "primary"
+#     }
+# {{- end }}
 
