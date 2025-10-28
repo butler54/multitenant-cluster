@@ -1,0 +1,11 @@
+apiVersion: k8s.ovn.org/v1
+kind: UserDefinedNetwork
+metadata:
+  name: udn-primary
+  namespace: gitops-udn-b
+spec:
+  topology: Layer2
+  layer2:
+    role: Primary
+    subnets:
+      - "10.150.0.0/16"

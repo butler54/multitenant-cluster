@@ -1,0 +1,10 @@
+apiVersion: k8s.ovn.org/v1
+kind: EgressIP
+metadata:
+  name: egress-udn-c
+spec:
+  egressIPs: 
+  - 172.25.49.100
+  namespaceSelector:
+      matchLabels:
+        name: gitops-udn-c

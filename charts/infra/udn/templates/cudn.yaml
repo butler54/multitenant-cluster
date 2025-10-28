@@ -1,0 +1,15 @@
+apiVersion: k8s.ovn.org/v1
+kind: ClusterUserDefinedNetwork
+metadata:
+  name: udn-primary
+  namespace: udn-c
+spec:
+  namespaceSelector:
+    matchLabels:
+      name: gitops-udn-c
+  topology: Layer3
+  layer3:
+    role: Primary
+    subnets:
+      - cidr: 10.150.0.0/16
+        hostSubnet: 24

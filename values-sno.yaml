@@ -139,6 +139,11 @@ clusterGroup:
       namespace: metallb-system
       project: infra
       path: charts/infra/metallb
+    udn:
+      name: udn
+      namespace: gitops-udn-a
+      project: infra
+      path: charts/infra/udn  
   imperative:
 
     jobs:
