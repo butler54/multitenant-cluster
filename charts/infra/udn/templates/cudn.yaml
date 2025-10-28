@@ -1,8 +1,7 @@
 apiVersion: k8s.ovn.org/v1
 kind: ClusterUserDefinedNetwork
 metadata:
-  name: udn-primary
-  namespace: udn-c
+  name: mycudn
 spec:
   namespaceSelector:
     matchLabels:
