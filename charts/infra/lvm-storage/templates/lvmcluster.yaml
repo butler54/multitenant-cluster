@@ -10,5 +10,5 @@ spec:
       deviceSelector:
         paths:
         - /dev/nvme0n1
-        - /dev/nvme2n1
         - /dev/nvme3n1
+        - /dev/nvme4n1
