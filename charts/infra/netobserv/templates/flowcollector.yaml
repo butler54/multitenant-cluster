@@ -8,7 +8,7 @@ spec:
   agent:
     type: eBPF                                
     ebpf:
-      sampling: 50                            
+      sampling: 1                          
       logLevel: info
       privileged: false
       resources:
