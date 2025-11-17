@@ -22,6 +22,7 @@ clusterGroup:
   - gitops-udn-a:
       labels:
         k8s.ovn.org/primary-user-defined-network: ""
+        myUDN: foo
         name: gitops-udn-a
   - gitops-udn-b:
       labels:
